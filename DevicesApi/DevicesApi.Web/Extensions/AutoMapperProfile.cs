@@ -1,4 +1,7 @@
 ﻿using AutoMapper;
+using DevicesApi.Core.Dtos;
+using DevicesApi.Core.Entities;
+using DevicesApi.Core.Requests;
 
 namespace DevicesApi.Web.Extensions
 {
@@ -8,7 +11,9 @@ namespace DevicesApi.Web.Extensions
         public AutoMapperProfile()
         {
             // create the automapping for dtos and entities here
-            // CreateMap<SomeEntity, SomeEntityDto>();
+            CreateMap<DeviceEntity, GetDeviceDto>();
+            CreateMap<DeviceEntity, GetDeviceFullInfoDto>();
+            CreateMap<CreateDeviceRequest, DeviceEntity>();
         }
     }
 }

@@ -4,6 +4,8 @@ using DevicesApi.Web.Middlewares;
 var builder = WebApplication.CreateBuilder(args);
 var services = builder.Services;
 
+// add web api controllers and the healthcheck
+services.AddHealthChecks();
 services.AddControllers();
 
 // enable lowercase routes for endpoints
@@ -18,7 +20,7 @@ var mvcBuilder = services.AddControllers();
 
 #region Custom Configuration for services - this must be before the application build
 
-DatabaseContext.AddDbContexts(ref services, builder.Configuration);
+DatabaseContext.AddDbContexts(ref services);
 Swagger.AddSwaggerConfig(ref services);
 Scoped.AddScopedConfig(ref services);
 JsonOptions.AddJsonOptions(ref mvcBuilder);
