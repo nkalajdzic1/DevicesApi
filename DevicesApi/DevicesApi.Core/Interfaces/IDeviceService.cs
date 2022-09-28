@@ -34,7 +34,7 @@ namespace DevicesApi.Core.Interfaces
         /// <param name="updateDeviceRequest"> data to update the given device </param>
         /// <returns> The updated device </returns>
         /// <exception cref="Exception"> Throws not found exception if an invalid id is given (item does not exist for the given id) </exception>
-        Task<Response<GetDeviceFullInfoDto>> UpdateById(int deviceId, UpdateDeviceRequest createDeviceRequest);
+        Task<Response<GetDeviceFullInfoDto>> UpdateById(int deviceId, UpdateDeviceRequest updateDeviceRequest);
 
         /// <summary>
         /// Method to delete device by id
