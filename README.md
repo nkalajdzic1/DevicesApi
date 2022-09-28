@@ -7,11 +7,6 @@ REST API for retrieving Devices
 .NET 6 installed locally
 MSSQL
 
-### Templates
-
-Used the following template:
-[Nadir.Kalajdzic.ASP.NET.Core.Web.API](https://www.nuget.org/packages/Nadir.Kalajdzic.ASP.NET.Core.Web.API) (updated version of [Nadir.Kalajdzic.NETCoreWebApi.Template](https://www.nuget.org/packages/Nadir.Kalajdzic.NETCoreWebApi.Template))
-
 ### Setup
 
 1. in DevicesApi.Infrastructure run 'dotnet ef database update' to create the 'devices' database in your MSSQL instance.
@@ -21,4 +16,9 @@ Used the following template:
    is the 'solution'.
 
 - Server is now running on port (https://localhost:5000)[https://localhost:5000]
-- Swagger is now on url [https://localhost:5000/api/v1/swagger](https://localhost:5000/api/v1/swagger)
+- Swagger is now on url [https://localhost:5000/swagger/index.html](https://localhost:5000/swagger/index.html)
+
+### Templates
+
+Used the following template:
+[Nadir.Kalajdzic.ASP.NET.Core.Web.API](https://www.nuget.org/packages/Nadir.Kalajdzic.ASP.NET.Core.Web.API) (updated version of [Nadir.Kalajdzic.NETCoreWebApi.Template](https://www.nuget.org/packages/Nadir.Kalajdzic.NETCoreWebApi.Template))
