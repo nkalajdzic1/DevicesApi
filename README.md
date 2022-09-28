@@ -15,10 +15,11 @@ MSSQL
    This needs to be done because DevicesApi.Core and DevicesApi.Infrastructure are Class Libraries and the DevicesApi.Web
    is the 'solution'.
 
-- Server is now running on port (https://localhost:5000)[https://localhost:5000]
+- Server is now running on port [https://localhost:5000](https://localhost:5000)
 - Swagger is now on url [https://localhost:5000/swagger/index.html](https://localhost:5000/swagger/index.html)
 
 ### Templates
 
 Used the following template:
-[Nadir.Kalajdzic.ASP.NET.Core.Web.API](https://www.nuget.org/packages/Nadir.Kalajdzic.ASP.NET.Core.Web.API) (updated version of [Nadir.Kalajdzic.NETCoreWebApi.Template](https://www.nuget.org/packages/Nadir.Kalajdzic.NETCoreWebApi.Template))
+[Nadir.Kalajdzic.ASP.NET.Core.Web.API](https://www.nuget.org/packages/Nadir.Kalajdzic.ASP.NET.Core.Web.API)
+(updated version of [Nadir.Kalajdzic.NETCoreWebApi.Template](https://www.nuget.org/packages/Nadir.Kalajdzic.NETCoreWebApi.Template))
