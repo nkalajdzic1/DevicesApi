@@ -7,7 +7,7 @@ namespace DevicesApi.Web.Extensions
     {
         public static void AddScopedConfig(ref IServiceCollection services)
         {
-            // add services and their interfaces here
+            // add services and their interfaces
             services.AddScoped<IDeviceService, DeviceService>();
         }
     }

@@ -10,12 +10,13 @@ namespace DevicesApi.Infrastructure.Data.Seeders
             new DeviceEntity() 
             { 
                 Id = 1,
+                DeviceId = "9RLMugEpCVSeemZ5",
                 Name = "S7-150009",
                 DeviceTypeId = "Beweis",
                 Failsafe = false, 
                 TempMin = 0, 
                 TempMax = 60,
-                InstallationPosition = InstallationPositions.Horizontal,
+                InstallationPosition = InstallationPosition.Horizontal,
                 InsertInto19InchCabinet = false,
                 MotionEnable = true,
                 SiplusCatalog = false,
@@ -26,12 +27,13 @@ namespace DevicesApi.Infrastructure.Data.Seeders
             new DeviceEntity()
             {
                 Id = 2,
+                DeviceId = "1glmLrTZqf9YZleN",
                 Name = "S7-1500",
                 DeviceTypeId = "S7_1500",
                 Failsafe = true,
                 TempMin = 0,
                 TempMax = 50,
-                InstallationPosition = InstallationPositions.Vertical,
+                InstallationPosition = InstallationPosition.Vertical,
                 InsertInto19InchCabinet = true,
                 MotionEnable = true,
                 SiplusCatalog = false,
@@ -43,12 +45,13 @@ namespace DevicesApi.Infrastructure.Data.Seeders
             new DeviceEntity()
             {
                 Id = 3,
+                DeviceId = "9RLMugEbCVSeemZ4",
                 Name = "ET 200SP",
                 DeviceTypeId = "ET200_SP",
                 Failsafe = false,
                 TempMin = 0,
                 TempMax = 40,
-                InstallationPosition = InstallationPositions.Horizontal,
+                InstallationPosition = InstallationPosition.Horizontal,
                 InsertInto19InchCabinet = false,
                 MotionEnable = true,
                 SiplusCatalog = false,

@@ -1,5 +1,4 @@
 ﻿using DevicesApi.Core.Dtos;
-using DevicesApi.Core.Requests;
 using DevicesApi.Core.Responses;
 
 namespace DevicesApi.Core.Interfaces
@@ -9,9 +8,9 @@ namespace DevicesApi.Core.Interfaces
         /// <summary>
         ///  Method to return list of devices from the dabase based on the filter query parameters
         /// </summary>
-        /// <param name="getDevicesRequest"> Get devices request, contains the page number, page size etc. </param>
+        /// <param name="filterDevicesDto"> Devices filter dto, contains the page number, page size etc. </param>
         /// <returns> List of devices </returns>
-        Task<Response<List<GetDeviceDto>>> Get(GetDevicesRequest getDevicesRequest);
+        Task<Response<List<GetDeviceDto>>> Get(FilterDevicesDto filterDevicesDto);
 
         /// <summary>
         /// Method to return a device by id, with the full information about the device
@@ -23,18 +22,18 @@ namespace DevicesApi.Core.Interfaces
         /// <summary>
         /// Method to create a device
         /// </summary>
-        /// <param name="createDeviceRequest"> Device request, containing all the properties for creating a device </param>
+        /// <param name="createDeviceDto"> Create Device dto, containing all the properties for creating a device </param>
         /// <returns> The created device with the device id </returns>
-        Task<Response<GetDeviceFullInfoDto>> Create(CreateDeviceRequest createDeviceRequest);
+        Task<Response<GetDeviceFullInfoDto>> Create(CreateDeviceDto createDeviceDto);
 
         /// <summary>
         /// Method to update device by id
         /// </summary>
         /// <param name="deviceId"> Id of the given device </param>
-        /// <param name="updateDeviceRequest"> data to update the given device </param>
+        /// <param name="updateDeviceDto"> data to update the given device </param>
         /// <returns> The updated device </returns>
         /// <exception cref="Exception"> Throws not found exception if an invalid id is given (item does not exist for the given id) </exception>
-        Task<Response<GetDeviceFullInfoDto>> UpdateById(int deviceId, UpdateDeviceRequest updateDeviceRequest);
+        Task<Response<GetDeviceFullInfoDto>> UpdateById(int deviceId, UpdateDeviceDto updateDeviceDto);
 
         /// <summary>
         /// Method to delete device by id

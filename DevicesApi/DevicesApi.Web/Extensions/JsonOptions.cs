@@ -6,6 +6,7 @@ namespace DevicesApi.Web.Extensions
     {
         public static void AddJsonOptions(ref IMvcBuilder mvcBuilder)
         {
+            // setup the property naming
             mvcBuilder.AddJsonOptions(o => {
                 o.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
                 o.JsonSerializerOptions.DictionaryKeyPolicy = JsonNamingPolicy.CamelCase;

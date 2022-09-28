@@ -5,7 +5,7 @@ using System.Text.Json.Serialization;
 namespace DevicesApi.Core.Enums
 {
     [JsonConverter(typeof(JsonStringEnumConverter))]
-    public enum InstallationPositions
+    public enum InstallationPosition
     {
         [Description("horizontal")]
         Horizontal = 0,
@@ -16,7 +16,7 @@ namespace DevicesApi.Core.Enums
 
     public static class InstallationPositionsExtensions
     {
-        public static string GetDescriptionString(this InstallationPositions val)
+        public static string GetDescriptionString(this InstallationPosition val)
         {
             #pragma warning disable CS8602 // Dereference of a possibly null reference.
             DescriptionAttribute[] attributes = (DescriptionAttribute[])val.GetType().GetField(val.ToString()).GetCustomAttributes(typeof(DescriptionAttribute), false);

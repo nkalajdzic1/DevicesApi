@@ -9,10 +9,7 @@ namespace DevicesApi.Web.Extensions
         public static void AddDbContexts(ref IServiceCollection services)
         {
             // add db contexts
-            services.AddDbContext<DataContext>(options =>
-            {
-                options.UseSqlServer(Config.GetConnectionString());
-            });
+            services.AddDbContext<DataContext>(options => options.UseSqlServer(Config.GetConnectionString()));
         }
     }
 }

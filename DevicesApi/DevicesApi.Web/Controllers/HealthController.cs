@@ -23,10 +23,19 @@ namespace DevicesApi.Web.Controllers
             var result = new
             {
                 status = report.Status.ToString(),
-                errors = report.Entries.Select(e => new { name = e.Key, status = e.Value.Status.ToString(), description = e.Value.Description.ToString() })
+                errors = report.Entries.Select(e => new 
+                    { 
+                        name = e.Key, 
+                        upTime = e.Value.Duration,
+                        status = e.Value.Status.ToString(), 
+                        description = e.Value.Description 
+                    }
+                )
             };
 
-            return report.Status == HealthStatus.Healthy ? this.Ok(result) : this.StatusCode((int)HttpStatusCode.ServiceUnavailable, result);
+            return report.Status == HealthStatus.Healthy 
+                   ? this.Ok(result) 
+                   : this.StatusCode((int)HttpStatusCode.ServiceUnavailable, result);
         }
     }
 }

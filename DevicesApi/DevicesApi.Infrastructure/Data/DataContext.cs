@@ -24,6 +24,7 @@ namespace DevicesApi.Infrastructure.Data
         {
             base.OnModelCreating(modelBuilder);
 
+            // seed initial data for the database
             modelBuilder.Entity<DeviceEntity>().HasData(DeviceEntitySeeder.DeviceEntitySeeds);
         }
     }

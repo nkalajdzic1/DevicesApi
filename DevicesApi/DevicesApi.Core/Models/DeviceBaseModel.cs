@@ -1,23 +1,21 @@
 ﻿using DevicesApi.Core.Enums;
 using System.ComponentModel.DataAnnotations;
 
-namespace DevicesApi.Core.Entities
+namespace DevicesApi.Core.Models
 {
-    public class DeviceEntity: BaseEntity
+    public class DeviceBaseModel
     {
-        public int Id { get; set; }
-
         [Required]
         [MaxLength(50, ErrorMessage = "DeviceId cannot be longer than 50 characters")]
         public string DeviceId { get; set; } = string.Empty;
 
         [Required]
         [MaxLength(50, ErrorMessage = "Name cannot be longer than 50 characters")]
-        public string Name { get; set; } = String.Empty;
+        public string Name { get; set; } = string.Empty;
 
         [Required]
         [MaxLength(50, ErrorMessage = "DeviceTypeId cannot be longer than 50 characters")]
-        public string DeviceTypeId { get; set; } = String.Empty;
+        public string DeviceTypeId { get; set; } = string.Empty;
 
         [Required]
         public bool Failsafe { get; set; }

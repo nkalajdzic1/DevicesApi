@@ -1,6 +1,6 @@
-﻿namespace DevicesApi.Core.Requests
+﻿using DevicesApi.Core.Models;
+
+namespace DevicesApi.Core.Requests
 {
-    public class UpdateDeviceRequest: CreateDeviceRequest
-    {
-    }
+    public class UpdateDeviceRequest: DeviceBaseModel {}
 }

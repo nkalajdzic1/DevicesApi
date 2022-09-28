@@ -2,7 +2,5 @@
 
 namespace DevicesApi.Core.Requests
 {
-    public class GetDevicesRequest : FilterModel
-    {
-    }
+    public class GetDevicesRequest : FilterModel {}
 }
