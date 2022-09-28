@@ -4,8 +4,8 @@ REST API for retrieving Devices
 
 ### Requirements
 
-.NET 6 installed locally
-MSSQL
+- .NET 6 installed locally
+- MSSQL
 
 ### Setup
 
