@@ -1,6 +1,7 @@
-﻿using DevicesApi.Core.Classes;
+﻿using Microsoft.EntityFrameworkCore;
+
+using DevicesApi.Core.Classes;
 using DevicesApi.Infrastructure.Data;
-using Microsoft.EntityFrameworkCore;
 
 namespace DevicesApi.Web.Extensions
 {

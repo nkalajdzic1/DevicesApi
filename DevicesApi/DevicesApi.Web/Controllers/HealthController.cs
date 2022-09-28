@@ -9,15 +9,18 @@ namespace DevicesApi.Web.Controllers
     public class HealthController : ControllerBase
     {
         private readonly HealthCheckService healthCheckService;
+        private readonly ILogger<HealthController> _logger;
 
-        public HealthController(HealthCheckService healthCheckService)
+        public HealthController(HealthCheckService healthCheckService, ILogger<HealthController> logger)
         {
             this.healthCheckService = healthCheckService;
+            _logger = logger;
         }
 
         [HttpGet]
-        public async Task<ActionResult> Get()
+        public async Task<ActionResult> GetHealth()
         {
+            _logger.LogInformation(message: $"{nameof(HealthController)}.{nameof(HealthController.GetHealth)} called.");
             HealthReport report = await this.healthCheckService.CheckHealthAsync();
             
             var result = new

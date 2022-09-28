@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace DevicesApi.Core.Classes
 {
-    public class Header
+    public class HttpHeader
     {
         public static void AddResponseHeader(IHttpContextAccessor contextAccessor, string key, string value)
         {

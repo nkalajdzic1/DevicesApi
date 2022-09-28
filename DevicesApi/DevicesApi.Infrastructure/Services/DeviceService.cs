@@ -8,6 +8,7 @@ using DevicesApi.Core.Responses;
 using DevicesApi.Infrastructure.Data;
 using DevicesApi.Core.Classes;
 using DevicesApi.Core.Entities;
+using Microsoft.Extensions.Logging;
 
 namespace DevicesApi.Infrastructure.Services
 {
@@ -16,21 +17,25 @@ namespace DevicesApi.Infrastructure.Services
         private readonly IMapper _mapper;
         private readonly DataContext _context;
         private readonly IHttpContextAccessor _httpContext;
+        private readonly ILogger<DeviceService> _logger;
 
-        public DeviceService(IMapper mapper, DataContext context, IHttpContextAccessor httpContext)
+        public DeviceService(IMapper mapper, DataContext context, IHttpContextAccessor httpContext, ILogger<DeviceService> logger)
         {
             _mapper = mapper;
             _context = context;
             _httpContext = httpContext;
+            _logger = logger;
         }
 
         /// <summary>
-        ///  Method to return list of devices from the dabase based on the filter query parameters
+        /// Method to return list of devices from the dabase based on the filter query parameters
         /// </summary>
-        /// <param name="filterDevicesDto"> Device filter dto, contains the page number, page size etc. </param>
+        /// <param name="filterDevicesDto"> Devices filter dto, contains the page number, page size etc. </param>
         /// <returns> List of devices </returns>
         public async Task<Response<List<GetDeviceDto>>> Get(FilterDevicesDto filterDevicesDto)
         {
+            _logger.LogInformation(message: $"{nameof(DeviceService)}.{nameof(DeviceService.Get)} called.");
+
             // create builder query - main query for the list
             var query = _context.DeviceEntities.AsQueryable();
             // creat builder query for the total count
@@ -42,7 +47,7 @@ namespace DevicesApi.Infrastructure.Services
             QueryBuilder.AddPagination(ref query, filterDevicesDto.PageNumber, filterDevicesDto.PageSize);
 
             // add total count to response header
-            Header.AddXTotalCount(_httpContext, (await countQuery.CountAsync()).ToString());
+            HttpHeader.AddXTotalCount(_httpContext, (await countQuery.CountAsync()).ToString());
 
             return new()
             {
@@ -59,6 +64,8 @@ namespace DevicesApi.Infrastructure.Services
         /// <exception cref="Exception"> Throws not found exception if an invalid id is given (item does not exist for the given id) </exception>
         public async Task<Response<GetDeviceFullInfoDto>> GetById(int deviceId)
         {
+            _logger.LogInformation(message: $"{nameof(DeviceService)}.{nameof(DeviceService.GetById)} called.");
+
             var device = await _context.DeviceEntities.Where(x => x.Id == deviceId)
                                                       .Select(x => _mapper.Map<GetDeviceFullInfoDto>(x))
                                                       .FirstOrDefaultAsync();
@@ -81,7 +88,9 @@ namespace DevicesApi.Infrastructure.Services
         /// <param name="createDeviceDto"> Create Device dto, containing all the properties for creating a device </param>
         /// <returns> The created device with the device id </returns>
         public async Task<Response<GetDeviceFullInfoDto>> Create(CreateDeviceDto createDeviceDto)
-         {
+        {
+            _logger.LogInformation(message: $"{nameof(DeviceService)}.{nameof(DeviceService.Create)} called.");
+
             // map request to entity
             var device = _mapper.Map<DeviceEntity>(createDeviceDto);
              
@@ -94,7 +103,7 @@ namespace DevicesApi.Infrastructure.Services
                 Data = _mapper.Map<GetDeviceFullInfoDto>(device),
                 StatusCode = StatusCodes.Status201Created
             };
-         }
+        }
 
         /// <summary>
         /// Method to update device by id
@@ -105,6 +114,8 @@ namespace DevicesApi.Infrastructure.Services
         /// <exception cref="Exception"> Throws not found exception if an invalid id is given (item does not exist for the given id) </exception>
         public async Task<Response<GetDeviceFullInfoDto>> UpdateById(int deviceId, UpdateDeviceDto updateDeviceDto)
          {
+            _logger.LogInformation(message: $"{nameof(DeviceService)}.{nameof(DeviceService.UpdateById)} called.");
+
             var device = await _context.DeviceEntities.FirstOrDefaultAsync(x => x.Id == deviceId);
 
             if (device == null)
@@ -130,6 +141,8 @@ namespace DevicesApi.Infrastructure.Services
         /// <exception cref="Exception"> Throws not found exception if an invalid id is given (item does not exist for the given id) </exception>
         public async Task<Response<bool>> DeleteById(int deviceId)
          {
+            _logger.LogInformation(message: $"{nameof(DeviceService)}.{nameof(DeviceService.DeleteById)} called.");
+
             var device = await _context.DeviceEntities.FirstOrDefaultAsync(x => x.Id == deviceId);
 
             if (device == null)

@@ -6,7 +6,7 @@ namespace DevicesApi.Core.Interfaces
     public interface IDeviceService
     {
         /// <summary>
-        ///  Method to return list of devices from the dabase based on the filter query parameters
+        /// Method to return list of devices from the dabase based on the filter query parameters
         /// </summary>
         /// <param name="filterDevicesDto"> Devices filter dto, contains the page number, page size etc. </param>
         /// <returns> List of devices </returns>

@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
+
 using DevicesApi.Core.Dtos;
 using DevicesApi.Core.Entities;
+using DevicesApi.Core.Models;
 using DevicesApi.Core.Requests;
 
 namespace DevicesApi.Web.Extensions
@@ -19,6 +21,8 @@ namespace DevicesApi.Web.Extensions
             CreateMap<UpdateDeviceRequest, UpdateDeviceDto>();
 
             CreateMap<CreateDeviceDto, DeviceEntity>();
+
+            CreateMap<CreateDeviceFileDto, CreateDeviceDto>().ForMember(x => x.DeviceId, opt => opt.MapFrom(t => t.Id));
         }
     }
 }

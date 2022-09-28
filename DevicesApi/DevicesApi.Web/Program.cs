@@ -6,7 +6,8 @@ var services = builder.Services;
 
 // add web api controllers and the healthcheck
 services.AddHealthChecks();
-services.AddControllers();
+// add controllers, the mvc builder instance will be needed for other configuration
+var mvcBuilder = services.AddControllers().AddNewtonsoftJson();
 
 // enable lowercase routes for endpoints
 services.AddRouting(options => options.LowercaseUrls = true);
@@ -14,9 +15,6 @@ services.AddEndpointsApiExplorer();
 
 // add http context accesor
 services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-
-// add controllers, the mvc builder instance will be needed for other configuration
-var mvcBuilder = services.AddControllers();
 
 #region Custom Configuration for services - this must be before the application build
 

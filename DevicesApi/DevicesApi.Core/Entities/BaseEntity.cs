@@ -1,5 +1,6 @@
 ﻿namespace DevicesApi.Core.Entities
 {
+    // base entity, used to add common properties to entities
     public class BaseEntity
     {
         public DateTime CreatedAt { get; set; } = DateTime.Now;

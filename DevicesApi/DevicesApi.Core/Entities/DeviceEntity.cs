@@ -1,5 +1,6 @@
-﻿using DevicesApi.Core.Enums;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+
+using DevicesApi.Core.Enums;
 
 namespace DevicesApi.Core.Entities
 {

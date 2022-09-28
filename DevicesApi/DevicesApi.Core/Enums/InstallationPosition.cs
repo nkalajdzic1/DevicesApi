@@ -16,6 +16,7 @@ namespace DevicesApi.Core.Enums
 
     public static class InstallationPositionsExtensions
     {
+        // used to convert the given enum value to the description value
         public static string GetDescriptionString(this InstallationPosition val)
         {
             #pragma warning disable CS8602 // Dereference of a possibly null reference.
