@@ -14,8 +14,8 @@ namespace DevicesApi.Web.Extensions
         {
             // create the automapping for dtos and entities here
             CreateMap<DeviceEntity, GetDeviceDto>();
-            CreateMap<DeviceEntity, GetDeviceFullInfoDto>();
-            
+            CreateMap<DeviceEntity, GetDeviceFullInfoDto>().ForMember(x => x.InstallationPosition, opt => opt.MapFrom(t => t.InstallationPosition.ToString()));
+
             CreateMap<GetDevicesRequest, FilterDevicesDto>();
             CreateMap<CreateDeviceRequest, CreateDeviceDto>();
             CreateMap<UpdateDeviceRequest, UpdateDeviceDto>();
