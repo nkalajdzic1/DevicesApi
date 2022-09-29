@@ -153,7 +153,7 @@ namespace DevicesApi.Infrastructure.Services
             _context.DeviceEntities.Remove(device);
             await _context.SaveChangesAsync();
 
-            return new() { Data = true, StatusCode= StatusCodes.Status204NoContent };
+            return new() { Data = true, StatusCode= StatusCodes.Status200OK };
         }
     }
 }
