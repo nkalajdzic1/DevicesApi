@@ -1,4 +1,6 @@
-﻿namespace DevicesApi.Web.Extensions
+﻿using DevicesApi.Core.Constants;
+
+namespace DevicesApi.Web.Extensions
 {
     public class Cors
     {
@@ -9,6 +11,7 @@
                             "http://localhost:3000"
                        ).AllowAnyMethod()
                         .AllowAnyHeader()
+                        .WithExposedHeaders(Headers.XTotalCount)
             );
         }
     }
