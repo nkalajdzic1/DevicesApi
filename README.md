@@ -44,3 +44,4 @@ Project architecture is the Clean 'Onion' architecture with few modifications:
 - Add CI/CD and proper branch strategy (not just master branch)
 - Add unit tests
 - Add postman collection
+- Add Cancellation token to enable request canceling
