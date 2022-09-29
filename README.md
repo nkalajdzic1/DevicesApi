@@ -7,6 +7,9 @@ REST API for retrieving Devices
 - .NET 6 installed locally
 - MSSQL
 
+The frontend code is on the follwoing [link](https://github.com/nkalajdzic1/devices-web). The repository contains instructions
+on how to setup the frontend, but before setting up the frontend, backend must be up and running.
+
 ### Setup
 
 1. in DevicesApi.Infrastructure run 'dotnet ef database update' to create the 'devices' database in your MSSQL instance.
