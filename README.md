@@ -42,3 +42,5 @@ Project architecture is the Clean 'Onion' architecture with few modifications:
 - Setup logger more strategically - log what is needed, not just controller and service method calls and exceptions
 - Add Dockerfile and .yml build file
 - Add CI/CD and proper branch strategy (not just master branch)
+- Add unit tests
+- Add postman collection
